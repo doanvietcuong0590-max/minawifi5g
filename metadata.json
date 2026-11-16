@@ -1,0 +1,6 @@
+{
+  "name": "Wifigo - Sim Du Lịch & Pocket WiFi Quốc Tế",
+  "description": "Hệ thống bán & cho thuê Sim 4G/5G quốc tế, eSIM quét mã QR và Pocket WiFi phát sóng đa quốc gia với quản lý đơn hàng thời gian thực.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

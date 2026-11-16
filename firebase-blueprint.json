@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Wifi package or SIM card product details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique product ID" },
+        "name": { "type": "string", "description": "Product display title" },
+        "image": { "type": "string", "description": "Product image URL" },
+        "monthlyPriceJPY": { "type": "number", "description": "Monthly fee in Japanese Yen (¥)" },
+        "description": { "type": "string", "description": "Detailed package description" },
+        "inStock": { "type": "boolean", "description": "Whether package is in stock" }
+      },
+      "required": ["name", "monthlyPriceJPY", "description"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase, registration, or rental request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Order tracking code like WF-123456" },
+        "customerName": { "type": "string", "description": "Customer full name" },
+        "customerPhone": { "type": "string", "description": "Customer contact phone" },
+        "customerEmail": { "type": "string", "description": "Customer email" },
+        "customerAddress": { "type": "string", "description": "Delivery address" },
+        "deliveryMethod": { "type": "string", "description": "Delivery method" },
+        "airportName": { "type": "string", "description": "Pickup airport name if applicable" },
+        "departureDate": { "type": "string", "description": "Departure date if applicable" },
+        "notes": { "type": "string", "description": "Customer notes" },
+        "paymentMethod": { "type": "string", "description": "Payment method" },
+        "paymentStatus": { "type": "string", "description": "Payment status" },
+        "totalAmount": { "type": "number", "description": "Total price in JPY" },
+        "status": { "type": "string", "description": "Order status" },
+        "statusNote": { "type": "string", "description": "Processing status note" },
+        "trackingNumber": { "type": "string", "description": "Shipping carrier tracking code" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Last update timestamp" },
+        "items": { "type": "array", "description": "Ordered products list" }
+      },
+      "required": ["customerName", "deliveryMethod", "totalAmount", "status"]
+    },
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Website global configuration, contact info, and 100% inline editable custom texts",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string", "description": "Store branding name" },
+        "siteTagline": { "type": "string", "description": "Store tagline" },
+        "hotline": { "type": "string", "description": "Customer service phone" },
+        "whatsappPhone": { "type": "string", "description": "WhatsApp contact number" },
+        "zaloPhone": { "type": "string", "description": "Zalo contact number" },
+        "supportEmail": { "type": "string", "description": "Support email address" },
+        "addressHanoi": { "type": "string", "description": "Office address" },
+        "customTexts": { "type": "object", "description": "Direct inline editable texts across 100% of the site" }
+      }
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Catalog of internet packages and SIM cards"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders and rental requests"
+    },
+    "/settings/{settingsId}": {
+      "schema": "SiteSettings",
+      "description": "Store configuration and live text edits"
+    }
+  }
+}
